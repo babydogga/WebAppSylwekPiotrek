@@ -7,7 +7,10 @@ namespace WebAppSylwek.Controllers
     {
         public IActionResult Overview()
         {
-            var item = new Item() { Name = "keyboard" };
+            var item = new Book()
+            {
+
+            };
             return View(item);
         }
 

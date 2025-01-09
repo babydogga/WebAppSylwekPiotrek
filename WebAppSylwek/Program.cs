@@ -1,9 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using WebAppSylwek.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<BiblioDbContext>(options
+=> options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
 var app = builder.Build();
 
@@ -14,8 +17,6 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-builder.Services.AddDbContext<WebAppSylwek.Models.BiblioDbContext>(options=> options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
-
 
 app.UseHttpsRedirection();
 app.UseRouting();
