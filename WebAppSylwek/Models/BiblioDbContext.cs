@@ -6,6 +6,6 @@ namespace WebAppSylwek.Models
     {       public BiblioDbContext(DbContextOptions<BiblioDbContext> options) : base(options)
         {
         }
-        public DbSet<Item> Items { get; set; }
+        public DbSet<Book> Items { get; set; }
     }
 }
