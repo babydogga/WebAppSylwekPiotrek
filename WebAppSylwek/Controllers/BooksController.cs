@@ -47,7 +47,12 @@ namespace WebAppSylwek.Controllers
         // GET: Books/Create
         public IActionResult Create()
         {
-            ViewData["GenreId"] = new SelectList(_context.Set<Genre>(), "Id", "Name");
+            ViewData["GenreId"] = new SelectList(new[]
+    {
+        new { Value = 1, Text = "Fiction" },
+        new { Value = 2, Text = "Non-Fiction" },
+        new { Value = 3, Text = "Science Fiction" }
+    }, "Value", "Text");
             return View();
         }
 

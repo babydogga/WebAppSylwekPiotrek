@@ -1,4 +1,5 @@
-﻿namespace WebAppSylwek.Models
+﻿
+namespace WebAppSylwek.Models
 {
     public class Book
     {
