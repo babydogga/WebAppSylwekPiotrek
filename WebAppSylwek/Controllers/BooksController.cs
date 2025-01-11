@@ -24,6 +24,18 @@ namespace WebAppSylwek.Controllers
             var biblioDbContext = _context.Items.Include(b => b.Genre);
             return View(await biblioDbContext.ToListAsync());
         }
+        // GET: Books/ShowSearchForm
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            var biblioDbContext = _context.Items.Include(b => b.Genre);
+            return View();
+        }
+        // GET: Post/ShowSearchResults 
+        public async Task<IActionResult> ShowSearchResults(string SearchPhrase)
+        {
+            var biblioDbContext = _context.Items.Include(b => b.Genre);
+            return View("Index", await biblioDbContext.Where(j => j.Title.Contains(SearchPhrase)).ToListAsync());
+        }
 
         // GET: Books/Details/5
         public async Task<IActionResult> Details(int? id)
